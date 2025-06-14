@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:screenui/view/homescreen.dart';
 
 void main() => runApp(MyApp());
@@ -6,11 +7,15 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'attendece',
-      theme: ThemeData(primarySwatch: Colors.indigo),
-      home: MainScreen(),
+    return ResponsiveSizer(
+      builder: (context, orientation, screenType) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'attendece',
+          theme: ThemeData(primarySwatch: Colors.indigo),
+          home: MainScreen(),
+        );
+      },
     );
   }
 }

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:screenui/view/checkin.dart';
 import 'package:screenui/view/dashboardgird.dart';
 import 'package:screenui/view/header.dart';
-import 'package:screenui/view/mytasks.dart';
 import 'package:screenui/view/overview.dart';
+import 'package:screenui/view/task_section.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -11,54 +12,48 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // You can add a custom bottom navigation bar if needed
+      // backgroundColor: Colors.white,
       // bottomNavigationBar: BottomBar(),
-
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const HeaderWidget(),
-              const SizedBox(height: 40),
-
-              const Text(
-                'Good Morning,\nHemant Rangarajan',
-                style: TextStyle(fontSize: 16, color: Colors.grey),
+            children:  [
+              HeaderWidget(),
+              SizedBox(height: 40),
+              Text(
+                "Good Morning,\nHemant Rangarajan",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey[700],
+                ),
               ),
-              const SizedBox(height: 12),
-
-              const Checkin(),
-              const SizedBox(height: 24),
-
-              const Text(
+              SizedBox(height: 12),
+              Checkin(),
+              SizedBox(height: 24),
+              Text(
                 'Overview',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
-              const SizedBox(height: 12),
-
-              const OverviewRow(), // Use this section for compact performance summary
-
-              const SizedBox(height: 28),
-              const Text(
-                'My Tasks',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              const SizedBox(height: 12),
-
-              const Mytasks(), // This will work if Mytasks uses only Column/ListView, not Expanded directly
-
-              const SizedBox(height: 28),
-              const Text(
+              SizedBox(height: 12),
+              OverviewRow(),
+              SizedBox(height: 28),
+              TaskSection(),
+              Divider(thickness: 1,),
+              SizedBox(height: 24),
+              Text(
                 'Dashboard',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
-              const SizedBox(height: 12),
-
-              const DashboardGrid(),
-
-              const SizedBox(height: 20),
+              SizedBox(height: 12),
+              DashboardGrid(),
             ],
           ),
         ),

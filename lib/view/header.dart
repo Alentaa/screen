@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({super.key});
@@ -8,47 +9,53 @@ class HeaderWidget extends StatelessWidget {
     return Row(
       children: [
         Container(
-          width: MediaQuery.of(context).size.width * 00.8 + 20,
+          width: 78.w, 
           child: Stack(
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * 00.8,
+                width: 74.w, 
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [Colors.blue.shade900, Colors.green],
+                    colors: [
+                      const Color.fromARGB(255, 6, 104, 42),
+                      Colors.green,
+                    ],
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                   ),
                   borderRadius: BorderRadius.horizontal(
-                    right: Radius.circular(30),
+                    right: Radius.circular(5.w),
                   ),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                padding: EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.5.h),
                 child: Row(
                   children: [
                     Container(
-                      height: 50,
-                      padding: EdgeInsets.symmetric(horizontal: 12),
-                       child: CircleAvatar(
-                  backgroundImage: AssetImage('asset/profile.jpeg'),
-                  radius: 22,
+                      height: 6.h,
+                      padding: EdgeInsets.symmetric(horizontal: 3.w),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('asset/profile.jpeg'),
+                        radius: 3.h,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 3.w),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Hemant Rangarajan",
                           style: TextStyle(
-                            fontSize: 14,
+                            fontSize: 14.sp,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
                         ),
                         Text(
                           "Full-stack Developer",
-                          style: TextStyle(fontSize: 12, color: Colors.white70),
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            color: Colors.white70,
+                          ),
                         ),
                       ],
                     ),
@@ -56,25 +63,31 @@ class HeaderWidget extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 9,
-                right: 5,
+                top: 1.h,
+                right: 1.w,
                 child: CircleAvatar(
                   backgroundImage: AssetImage('asset/ziya academy logo.jpg'),
-                  radius: 22,
+                  radius: 3.h,
                 ),
               ),
             ],
           ),
         ),
-        // SizedBox(width: 20,),
+        SizedBox(width: 2.w),
         Container(
           decoration: BoxDecoration(
             color: Colors.white,
             shape: BoxShape.circle,
-            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)],
+            boxShadow: [
+              BoxShadow(color: Colors.black12, blurRadius: 1.w),
+            ],
           ),
-          padding: EdgeInsets.all(8),
-          child: Icon(Icons.notifications_sharp, color: Colors.blue),
+          padding: EdgeInsets.all(1.5.w),
+          child: Icon(
+            Icons.notifications_sharp,
+            color: Colors.blue,
+            size: 6.w,
+          ),
         ),
       ],
     );
